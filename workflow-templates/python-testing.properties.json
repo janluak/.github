@@ -1,0 +1,8 @@
+{
+    "name": "Python Testing on push besides default-branch",
+    "description": "Tests a python package",
+    "iconName": "pytest",
+    "filePatterns": [
+        "tests/test*"
+    ]
+}
