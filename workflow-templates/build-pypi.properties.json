@@ -1,0 +1,12 @@
+{
+    "name": "Build PyPi",
+    "description": "Python testing, building and uploading to pypi on push on $default-branch",
+    "iconName": "pypi",
+    "categories": [
+        "Python"
+    ],
+    "filePatterns": [
+        "tests/test*",
+        "setup.py"
+    ]
+}
