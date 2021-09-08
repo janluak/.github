@@ -1,6 +1,6 @@
 {
-    "name": "Python Testing on push besides default-branch",
-    "description": "Tests a python package",
+    "name": "PyTest",
+    "description": "Tests a python package on every push",
     "iconName": "pytest",
     "categories": [
         "Python"

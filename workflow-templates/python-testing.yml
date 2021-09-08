@@ -1,9 +1,6 @@
 name: run python tests
 
-on:
-  push:
-    branches-ignore: [ $default-branch ]
-
+on: [ push ]
 
 jobs:
   testing:
