@@ -3,7 +3,7 @@ name: build python package and upload to pypi
 on:
   workflow_run:
     workflows: ["run python tests"]
-    branches: [ 'main' ]
+    branches: [ $default-branch ]
     types:
       - completed
 
@@ -17,12 +17,12 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
-      - name: install dependencies
+      - name: install
         run: |
           python -m pip install --upgrade pip
           python -m pip install setuptools wheel twine build
-          pip install -r requirements.txt
-      - name: get version
+          python -m pip install --use-feature=in-tree-build .
+      - name: get version of package
         id: get_version
         run: |
           echo -e "import ${{ github.event.repository.name }}\nprint(${{ github.event.repository.name }}.__version__)" >> get_version.py
@@ -30,7 +30,7 @@ jobs:
       - name: build package
         run: |
           python setup.py sdist bdist_wheel
-      - name: release
+      - name: release on github
         uses: marvinpinto/action-automatic-releases@latest
         id: create_release
         with:
